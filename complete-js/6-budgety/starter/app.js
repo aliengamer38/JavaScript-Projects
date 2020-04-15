@@ -54,6 +54,18 @@ let budgetController = (function () {
         testing: function () {
             console.log(data)
         },
+        deleteItem: function (type, id) {            
+            let ids = data.allItems[type].map(function (current) {
+                return current.id;
+            });            
+            let index = ids.indexOf(id);
+
+            if (index !== -1) {
+                data.allItems[type].splice(index, 1);
+                console.log(data.allItems[type]);
+            }
+
+        },
         calculateBudget: function () {
             calculateTotal("exp");            
             calculateTotal("inc");
@@ -87,13 +99,15 @@ let UIController = (function () {
     let incomeLabel = ".budget__income--value";
     let expensesLabel = ".budget__expenses--value";
     let percentageLabel = ".budget__expenses--percentage";
+    let container = ".container";
 
     let DOMStrings = {
         inputType, inputDescription,
         inputValue, inputBtn,
         incomeContainer, expenseContainer,
         budgetLabel, incomeLabel,
-        expensesLabel, percentageLabel
+        expensesLabel, percentageLabel,
+        container
     }
     return {
         getInput: function () {
@@ -115,6 +129,11 @@ let UIController = (function () {
             })
             fieldsArr[0].focus();
         },
+        deleteListItem: function (selectorID) {
+            let el = document.getElementById(selectorID);
+            el.parentNode.removeChild(el);
+
+        },
         displayBudget: function (obj) {
             document.querySelector(DOMStrings.budgetLabel).textContent = obj.budget;
             document.querySelector(DOMStrings.incomeLabel).textContent = obj.totalInc;
@@ -130,10 +149,10 @@ let UIController = (function () {
             let html, newHTML, element;
             if (type === "inc") {
                 element = DOMStrings.incomeContainer;
-                html = '<div class="item clearfix" id="income-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>';
+                html = '<div class="item clearfix" id="inc-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>';
             } else {
                 element = DOMStrings.expenseContainer;
-                html = ' <div class="item clearfix" id="expense-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__percentage">21%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>';
+                html = ' <div class="item clearfix" id="exp-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__percentage">21%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>';
             }
             newHTML = html.replace("%id%", obj.id);
             newHTML = newHTML.replace("%description%", obj.description);
@@ -157,7 +176,9 @@ let controller = (function (budgetCtrl, UICtrl) {
                 // console.log("Enter was pressed");
                 ctrlAddItem();
             }
-        })  
+        });
+        document.querySelector(DOM.container)
+            .addEventListener("click", ctrlDeleteItem);
     }   
     let updateBudget = function () {
         budgetCtrl.calculateBudget();
@@ -176,6 +197,19 @@ let controller = (function (budgetCtrl, UICtrl) {
             updateBudget();
         }
     };  
+    let ctrlDeleteItem = function (event) {
+        let itemID = event.target.parentNode.parentNode.parentNode.parentNode.id;
+        let splitID, type, ID;
+        if (itemID) {
+            splitID = itemID.split("-");
+            type = splitID[0];    
+            ID = splitID[1];
+        }
+        ID = parseFloat(ID);
+        budgetCtrl.deleteItem(type, ID);
+        UICtrl.deleteListItem(itemID);
+        updateBudget();
+    }
     
     return {
         init: function () {

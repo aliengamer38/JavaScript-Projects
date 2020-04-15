@@ -1,15 +1,6 @@
-let controller = (function () {
-    let testing = function () {
-        console.log(num);
-    }
-    // testing();
-    console.log("initializing");    
-    let num = 10;
-    
-    return {
-        test: function () {
-            testing();
-        }
-    }
-})();
-controller.test();
+let doc = document.createElement("li")
+doc.appendChild(document.createTextNode("Apple"));
+document.querySelector(".list").appendChild(doc);
+setTimeout(function () {
+    document.querySelector(".list").removeChild(doc);
+}, 1000);
