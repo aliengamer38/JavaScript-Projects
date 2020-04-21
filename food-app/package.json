@@ -1,0 +1,15 @@
+{
+  "name": "food-app",
+  "version": "1.0.0",
+  "description": "Food App",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ME",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^4.42.1"
+  },
+  "dependencies": {}
+}
