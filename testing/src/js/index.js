@@ -1,6 +1,4 @@
-import customer from "./home"
+import word from "./models/Search";
+import {add, multiply, ID} from "./views/searchView"
 
-console.log("exported - formated");
-console.log(customer.name);
-console.log(customer.desc)
-console.log("notice me senpai");
+console.log(`Using imported functions ${add(ID, 2)} and multiply ${multiply(3, 5)}. ${word}`);
