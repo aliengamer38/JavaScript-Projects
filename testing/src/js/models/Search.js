@@ -1,4 +1,5 @@
 import axios from "axios";
+import * as config from "../config";
 
 class Search {
 	constructor(query) {
