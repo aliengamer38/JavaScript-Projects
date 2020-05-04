@@ -1,0 +1,18 @@
+.Input {
+    display: flex;
+    flex-direction: row;
+    /* gap: 1rem; */
+    justify-content: center;
+}
+
+.Input input {
+    width: 50%;
+}
+.Inputs {
+    display: flex;
+    flex-direction: column;
+    width: 15rem;
+}
+.Input label, .Input input {
+    width: 75%;
+}

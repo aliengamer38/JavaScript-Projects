@@ -1,0 +1,12 @@
+.Main {
+    text-align: center;
+}
+.Users {
+    width: 85%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: auto;
+    background-color: rgb(204, 226, 245);
+    gap: 0.7rem;
+    padding: 0.5rem;
+}
