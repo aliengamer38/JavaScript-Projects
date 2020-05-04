@@ -3,6 +3,7 @@ import Classes from "./Main.css"
 import Article from "../Article/Article"
 import User from "../User/User"
 import Computer from "../Computer/Computer"
+import Users from "../User/Users"
 
 class Main extends Component {
     state = {
@@ -57,14 +58,7 @@ class Main extends Component {
         this.count++;
         // this.setState({desc: `Description - ${this.counter}`})
         this.setState({dummyText: `note: ${this.counter}`})
-    }
-    shouldComponentUpdate(nextProps, nextState) {        
-        console.log("[Main.js] shouldComponentUpdate");
-        console.log(this.state.users)
-        console.log(nextState.users);
-        console.log(this.state.users !== nextState.users |); // false
-        return this.state.users !== nextState.users ? true : false;            
-    }   
+    }    
     test = () => {
         return (
             <div style={{textAlign: "center"}}>
@@ -96,9 +90,7 @@ class Main extends Component {
                 <button onClick={() => this.displayArticle()}>Click Me</button>
                 {article}
                 <div className={Classes.Users}>                    
-                    {this.state.users.map((u, i) => {
-                        return <User user={u} changeField={ e => this.changeField(e, i)} key={i}/>                              
-                    })}              
+                    <Users users={this.state.users} changeField={this.changeField}/>
                 </div>
             </div>
         )
