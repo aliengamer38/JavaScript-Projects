@@ -1,5 +1,6 @@
 import React, {Component, useState, useEffect } from "react"
 import Classes from "./User.css"
+import Wrapper from "./Wrapper"
 
 
 class User extends Component {
@@ -21,20 +22,17 @@ class User extends Component {
         console.log("[User.js] componentDidUpdate");
     }    
     render() {
-        console.log("[User.js] Rendering...");        
-        return (
-            <div className={Classes.Inputs}>
-                {this.fieldNames.map((f, i) => {
-                    return (
-                        <div className={Classes.Input} key={i}>
-                            <label htmlFor={f}>{this.props.user[f]}</label>
-                            <input data-field={f} type="text" id={f} onChange={this.props.changeField} />                            
-                        </div>
-                    )
-                })}
-            </div>
-        )        
+        console.log("[User.js] Rendering...");                       
+        const renderView = this.fieldNames.map((f, i) => {
+            return (
+                <div className={Classes.Input} key={i}>
+                    <label htmlFor={f}>{this.props.user[f]}</label>
+                    <input data-field={f} type="text" id={f} onChange={this.props.changeField} />
+                </div>
+            )
+        });
+        return renderView;                                          
     }
 }
 
-export default User;
+export default Wrapper(User, Classes.Inputs);

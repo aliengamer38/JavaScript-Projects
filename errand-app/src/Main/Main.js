@@ -90,7 +90,8 @@ class Main extends Component {
                 <button onClick={() => this.displayArticle()}>Click Me</button>
                 {article}
                 <div className={Classes.Users}>                    
-                    <Users users={this.state.users} changeField={this.changeField}/>
+                    <Users users={this.state.users}
+                        changeField={this.changeField}/>
                 </div>
             </div>
         )

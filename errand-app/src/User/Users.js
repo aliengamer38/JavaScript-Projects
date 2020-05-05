@@ -1,5 +1,6 @@
 import React, {Component} from "react"
 import User from "./User"
+import Wrapper from "./Wrapper"
 
 class Users extends Component {
     shouldComponentUpdate(nextProps, nextState) {        
@@ -12,7 +13,9 @@ class Users extends Component {
     render() {
         return (
             this.props.users.map((u, i) => {
-                return <User user={u} changeField={e => {this.props.changeField(e, i)}}/>
+                return <User user={u}
+                    changeField={e => { this.props.changeField(e, i) }}
+                    key={i}/>
             })
         )
     }
