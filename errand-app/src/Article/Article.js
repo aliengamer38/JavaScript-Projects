@@ -1,14 +1,16 @@
 import React, { Component, useEffect } from "react"
 
-const article = () => {
-    useEffect(() => {
-        console.log("[Article.js] useEffect");
-    })
-    return (
-        <div>
-            Article
-        </div>
-    )
+class Article extends Component {
+    componentDidMount() {
+        console.log("ARTICLE mounted");
+    }
+    render() {
+        console.log("ARTICLE rendered")
+        return (
+            <div>
+                Article
+            </div>
+        )
+    }
 }
-
-export default React.memo(article);
+export default Article;
