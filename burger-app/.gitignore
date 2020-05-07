@@ -21,4 +21,3 @@ yarn-debug.log*
 yarn-error.log*
 
 .gitignore
-../complete-js/9-forkify/starter/node_modules/.cache/
