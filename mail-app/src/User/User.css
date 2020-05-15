@@ -1,0 +1,11 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.User a {
+    text-decoration: none;
+}
+.User a:hover {
+    text-decoration: underline;
+}
