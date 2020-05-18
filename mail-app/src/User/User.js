@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import classes from "./User.css"
 import "./User.css"
-import { withRouter } from "react-router-dom"
+import { withRouter, Link } from "react-router-dom"
 
 class User extends Component {
     componentDidMount() {
@@ -16,7 +16,7 @@ class User extends Component {
         console.log(this.props);
         return (
             <li className={classes.User}>
-                <a href={`/users/${this.props.user.id}`}>{this.props.user.name}</a>
+                <Link to={`/users/${this.props.match.id}`}>{this.props.user.name}</Link>
             </li>
         )
     }
