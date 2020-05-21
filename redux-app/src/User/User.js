@@ -1,23 +1,24 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
 
-
 class User extends Component {
-    render() {
+    state = {
+        isAuthenticate: false
+    }    
+    authenticate = (e) => {
+        this.setState({ isAuthenticate: true });        
+    }
+    render() {      
         return (
-            <div >
+            <div> 
+                <button onClick={this.props.authenticate}>Authenticate</button>
                 <p>{this.props.name}</p>
-                <p>{this.props.gender}</p>
-                <p>{this.props.age}</p>        
+                <p>{this.props.info}</p>
+
+                {this.props.specs !== undefined ? <p>{this.props.specs}</p> : undefined}                                
             </div>
         )
     }
 }
-const mapStateToProps = state => {
-    return {
-        name: state.name,
-        gender: state.gender,
-        age: state.age
-    }
-}
-export default connect(mapStateToProps)(User);
+
+export default User;
