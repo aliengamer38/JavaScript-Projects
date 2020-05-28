@@ -10,12 +10,14 @@ import { Route, Redirect, Switch } from "react-router-dom"
 import Account from "./Account/Account"
 import Counter from "./Counter/Counter"
 import Finance from "./Finance/Finance"
+import Emulator from "./Emulator/Emulator"
 import getMessage from "./Message/getMessage"
 import * as messageTypes from "./Message/messageType"
 import Message from "./Message/Message"
 import Work from "./Work/Work"
 import * as actionTypes from "./store/action/actionTypes" 
 import { connect } from "react-redux"
+import { componentWithProps } from "./Utility/ComponentWithProps"
 
 const Authentication = shouldDisplay(Auth);
 const SuccessMessage = getMessage(messageTypes.SUCCESS_CODE, Message);
@@ -36,10 +38,11 @@ class App extends Component {
 				<Switch>					
 					<Route path="/auth/success" component={SuccessMessage}/>
 					<Route path="/auth" component={Authentication} />
-					<Route path="/account" component={Account}/>
+					<Route path="/account" component={Account} />
+					<Route path="/emulator" component={componentWithProps(Emulator, {isAuthenticated: false, isEmulated: true})}/>
 					<Route path="/work" component={Work}/>
 					<Route path="/" exact component={Finance} />
-					<Route path="/" component={ErrorMessage} />
+					<Route path="/" component={ErrorMessage} />					
 				</Switch>				
 			</div>
 		);
