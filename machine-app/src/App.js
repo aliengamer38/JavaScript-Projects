@@ -13,9 +13,11 @@ import Finance from "./Finance/Finance"
 import getMessage from "./Message/getMessage"
 import * as messageTypes from "./Message/messageType"
 import Message from "./Message/Message"
+import Credit from "./Credit/Credit"
 import Work from "./Work/Work"
 import * as actionTypes from "./store/action/actionTypes" 
 import { connect } from "react-redux"
+import wrapper from "./Utility/wrapper"
 
 const Authentication = shouldDisplay(Auth);
 const SuccessMessage = getMessage(messageTypes.SUCCESS_CODE, Message);
@@ -25,10 +27,22 @@ class App extends Component {
 	displayText = () => {
 		alert("You Win!")
 	}	
+	constructor(props) {
+		super(props);
+		this.name = "default"
+	}
+	
 	componentDidMount() {
 		this.props.initializeUser();
 	}
+	changeName = () => {
+		this.name = "changed"
+		console.log(this)
+		console.log(this.name)
+	}
 	render() {		
+		console.log(this.name)
+		const CreditCard = wrapper(Credit, {name: this.name, changeName: this.changeName})
 		console.log("APP render")		
 		return (
 			<div style={{ textAlign: "center" }}>
@@ -36,7 +50,8 @@ class App extends Component {
 				<Switch>					
 					<Route path="/auth/success" component={SuccessMessage}/>
 					<Route path="/auth" component={Authentication} />
-					<Route path="/account" component={Account}/>
+					<Route path="/account" component={Account} />
+					<Route path="/credit" component={CreditCard} />					
 					<Route path="/work" component={Work}/>
 					<Route path="/" exact component={Finance} />
 					<Route path="/" component={ErrorMessage} />

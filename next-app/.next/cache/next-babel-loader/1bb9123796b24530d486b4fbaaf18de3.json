@@ -1,0 +1,1 @@
+{"ast":null,"code":"var __jsx = React.createElement;\nimport React, { Component } from \"react\";\n\nclass Auth extends Component {\n  render() {\n    return __jsx(\"div\", null, __jsx(\"p\", null, \"I am authenticating...\"));\n  }\n\n}\n\nexport default Auth;","map":null,"metadata":{},"sourceType":"module"}
