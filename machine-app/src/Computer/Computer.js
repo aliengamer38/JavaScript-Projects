@@ -1,12 +1,15 @@
 import React, { Component } from "react"
-import errorWrapper from "../Utility/errorWrapper"
+import Login from "../Auth/Login"
 
 class Computer extends Component {
     render() {
         return (
             <div>
-                Computer
-            </div>
+                <div>
+                    <Login/>                                    
+                </div>
+                <p>News</p>
+            </div>             
         )
     }
 }
