@@ -1,0 +1,78 @@
+.Modal {
+    position: fixed;
+    /* height: 10%;
+    width: 10%; */
+    display: none;
+    background-color: white;
+    top: 50%;
+    left: 50%;
+    z-index: 100;
+    transform: translate(-50%, -50%);
+    padding: 1rem;
+    border-radius: 0.4rem;
+    box-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+}
+
+.Modal h1 {
+    font-size: 1.5rem;
+    width: 70%;
+    margin: auto;
+}
+
+.Modal .Close {
+    outline: none;
+    border: none;
+    background-color: white;
+    font-size: 1rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    color: #666;
+}
+.Modal .Close:hover {
+    color: #000;
+}
+.Modal .Choices {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 0.3rem;    
+}
+.Modal .Choices button {
+    outline: none;
+    border: none;
+    padding: 0.2rem 0.7rem;
+    background-color: #ddd;
+    cursor: pointer;
+}
+
+.Modal .Choices button:hover {    
+    background-color: rgb(228, 203, 150);    
+}
+
+.ModalOpen {    
+    animation: move 0.3s ease-in 1 forwards;    
+    display: block;
+}
+.ModalClose {
+    animation: move 0.3s ease-in 1 forwards;        
+}
+.ModalNone {
+    display: none;
+}
+
+@keyframes move {
+    0% {
+        top: 10%;
+    }
+    50% {
+        top: 50%;
+    }
+    70% {
+        top: 40%;
+    }
+    100% {
+        top: 50%;
+    }
+}

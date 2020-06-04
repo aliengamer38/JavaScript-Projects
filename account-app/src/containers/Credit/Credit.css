@@ -1,0 +1,30 @@
+.Credit {
+    width: 50%;
+    margin: auto;
+    margin-top: 1rem;
+    transition: all 1s linear;
+}
+.CreditShow {
+    background-color: green;
+    transition: all 1s linear;
+}
+.Green {
+    background-color: green;
+}
+.Red {
+    background-color: red;
+}
+.Yellow {
+    background-color: yellow;
+}
+.Blue {
+    background-color: blue;
+}
+@keyframes move {
+    0% {
+        background-color: red;
+    }
+    100% {
+        background-color: green;
+    }
+}
