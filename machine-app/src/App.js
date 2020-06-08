@@ -54,11 +54,8 @@ class App extends Component {
 					<Route path="/auth/success" component={SuccessMessage}/>
 					<Route path="/auth" component={Authentication} />
 					<Route path="/account" component={Account} />
-<<<<<<< HEAD
 					<Route path="/credit" component={CreditCard} />					
-=======
 					<Route path="/emulator" component={componentWithProps(Emulator, {isAuthenticated: false, isEmulated: true})}/>
->>>>>>> 1c6e4805335521860e35c068e2236e4c0d98367e
 					<Route path="/work" component={Work}/>
 					<Route path="/" exact component={Finance} />
 					<Route path="/" component={ErrorMessage} />					

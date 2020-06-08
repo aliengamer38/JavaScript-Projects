@@ -1,0 +1,18 @@
+.LoadingOne {
+    animation: loading 1s linear infinite forwards
+}
+.LoadingTwo {
+    animation: loading 1s linear 0.33s infinite forwards;
+}
+.LoadingThree {
+    animation: loading 1s linear 0.66s infinite forwards;
+}
+
+@keyframes loading {
+    0% {
+        opacity: 1;
+    }
+    33.3% {
+        opacity: 0;
+    }
+}
