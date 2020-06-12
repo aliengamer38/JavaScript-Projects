@@ -1,3 +1,4 @@
+const { customerFields } = require("../../models/customer/utility/config")
 const Customer = require("../../models/customer/customer");
 const generateId = require("generate-unique-id").bind(null, {
 	length: 32,
@@ -17,12 +18,15 @@ const postCustomer = (req, res, next) => {
 		}
 		return null
 	})
+	const createCustomer = {}
+	
 	Customer.create({
 		id: generateId(),
 		name: body.name,
 		email: body.email,
 		address: body.address,
 		description: body.description,
+
 	})
 	.then((result) => {			
 		res.status(302).redirect("/customer/success");

@@ -2,7 +2,7 @@ const React = require("react")
 const { Fragment } = require("react")
 const { capitalizeWord } = require("../../utils/utility")
 const { genPage } = require("../_layout/temp")
-const { customerFields } = require("../../models/customer/utility")
+const { customerFields } = require("../../models/customer/utility/config")
 
 
 const details = props => {

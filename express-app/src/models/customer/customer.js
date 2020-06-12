@@ -7,7 +7,7 @@ const sequelize = require("../database")
 
 const Customer = sequelize.define("customer", {
     id: {
-        type: Sequelize.INTEGER,        
+        type: Sequelize.INTEGER,
         allowNull: false,
         primaryKey: true
     },
@@ -17,6 +17,11 @@ const Customer = sequelize.define("customer", {
     },
     email: {
         type: Sequelize.STRING,
+        allowNull: false,
+        unique: true
+    },
+    password: {
+        type: Sequelize.STRING,
         allowNull: false
     },
     address: {
@@ -24,7 +29,15 @@ const Customer = sequelize.define("customer", {
     },
     description: {
         type: Sequelize.STRING
+    },
+    mark: {
+        type: Sequelize.DECIMAL(10, 3)
+    },
+    comment: {
+        type: Sequelize.TEXT
+    },
+    gender: {
+        type: Sequelize.STRING
     }
 })
-
 module.exports = Customer

@@ -2,7 +2,7 @@ const React = require("react")
 const { genPage } = require("../_layout/temp")
 const { capitalizeWord } = require("../../utils/utility")
 
-const customerFields = ["name", "email", "address", "description", "gender"]
+const { customerFields } = require("../../models/customer/utility/config")
 
 const create = props => {
     return (
