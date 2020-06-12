@@ -1,0 +1,12 @@
+.input-field {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.3rem
+}
+.create-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+}

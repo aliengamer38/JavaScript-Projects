@@ -1,0 +1,8 @@
+.details-link {
+    color: black;
+    text-decoration: none;
+}
+.details-link:hover {
+    color: green;
+    text-decoration: underline;
+}
