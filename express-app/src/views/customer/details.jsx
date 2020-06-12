@@ -20,8 +20,12 @@ const details = props => {
                 <div className="customer-details_link">
                     <a href="/customer/create">Create</a>
                     <a href="/customer/index">Index</a>                    
-                    <input type="submit" value="Edit" />                                   
-                </div>
+                    <input type="submit" value="Edit" />                             
+                </div>                
+            </form>
+            <form method="post" action="/customer/delete" style={{textAlign: "center"}}> 
+                <input type="hidden" name="id" value={props.customer.id} />
+                <input type="submit" value="Delete"/>
             </form>
         </Fragment>
     )

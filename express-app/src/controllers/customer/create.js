@@ -18,16 +18,14 @@ const postCustomer = (req, res, next) => {
 		}
 		return null
 	})
-	const createCustomer = {}
-	
-	Customer.create({
-		id: generateId(),
-		name: body.name,
-		email: body.email,
-		address: body.address,
-		description: body.description,
-
+	const newCustomer = {}
+	customerFields.map(f => {
+		newCustomer[f] = body[f]
+		newCustomer.id = generateId()
+		return null
 	})
+	
+	Customer.create(newCustomer)
 	.then((result) => {			
 		res.status(302).redirect("/customer/success");
 	})
