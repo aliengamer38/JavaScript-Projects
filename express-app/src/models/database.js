@@ -1,6 +1,6 @@
 const Sequelize = require("sequelize")
 
-const sequelize = new Sequelize("errand-app", "test", "a", {
+const sequelize = new Sequelize("errand-app", "HR", "a", {
     dialect: "mysql",
     host: "localhost"
 })
