@@ -1,6 +1,6 @@
 const React = require("react")
 const { Fragment } = require("react")
-const { genPage } = require("../_layout/temp")
+const { genPage } = require("./_layout/temp")
 
 const success = props => {
     return (
