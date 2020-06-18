@@ -1,0 +1,2 @@
+void grades();
+void printMessage();
