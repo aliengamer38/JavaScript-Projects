@@ -1,14 +1,14 @@
 #include <stdio.h>
-#include <stdbool.h>
 #include <stdlib.h>
 #include <time.h>
 #include "main.h"
 #include <string.h>
-
+#include <ctype.h>
 
 #define RATE  0.1  
 #define TAX_PAY  300
 #define SIZE 10
+
 
 int findMax(int numLength, int *nums)
 {
@@ -23,11 +23,51 @@ int findMax(int numLength, int *nums)
     return max;
 }
 
+void printArrChars(int length, char *word)
+{
+    for (int i = 0; i < length; i++)
+    {        
+        printf("word[%d] = %d or %c\n", i, word[i], word[i]);
+        if (word[i] == '\0')
+            return;
+    }
+}
+
+char* convert_to_upper(char *word)
+{    
+    for (int i = 0; i < 1000; i++)
+    {
+        word[i] = toupper(word[i]);        
+        if (!word[i])
+            break;
+    }
+    return word;
+}
+char findLength(char *word)
+{
+    char count = 0;
+    for (char i = 0; i < 255; i++)
+    {
+        if (word[i])
+            break;
+        count++;        
+    }
+    return count;
+}
 int main(int argc, char *argv[]) 
 {
     double value;
     char text[] = "note";
     printf("%d\n", &text);
+}
+
+void null_string()
+{
+    char word[] = "words";
+    char text[] = "word";
+    
+    if (strncmp(word, text, 5) == 0)
+        printf("The two phrase are equal");    
 }
 
 void printMessage()
