@@ -25,10 +25,9 @@ int findMax(int numLength, int *nums)
 
 int main(int argc, char *argv[]) 
 {
-    int nums[] = {10, 60, 127, 32, 75};
-    int sizeOfNum = sizeof(nums) / sizeof(int);
-    int numsMax = findMax(sizeOfNum, nums);
-    printf("%d", numsMax);
+    double value;
+    char text[] = "note";
+    printf("%d\n", &text);
 }
 
 void printMessage()
