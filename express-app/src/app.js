@@ -32,20 +32,23 @@ app.use(appParser)
 app.use("/customer", customerRouter)
 app.use("/user", userRouter)
 app.use("/cart", cartRouter)
-// app.use("/product", (req, res, next) => {
-    
-// })
+app.use("/product", (req, res, next) => {
+    req.product = "product middleware"
+    next()
+})
 app.use("/product", productRouter)
 app.use(staticRouter)
 app.use(errorRouter)
 
-Product.belongsTo(Cart, { constraints: true, onDelete: "CASCADE" })
-Cart.hasMany(Product)
+// Product.belongsTo(Cart, { constraints: true, onDelete: "CASCADE" })
+// Cart.hasMany(Product)
 
-sequelize.sync({ force: true }).then(result => {        
-    app.listen(port)
-}).catch(err => {
-    console.log(err)
-})
+// sequelize.sync({ force: true }).then(result => {        
+//     app.listen(port)
+// }).catch(err => {
+//     console.log(err)
+// })
+
+app.listen(port)
 
 console.log(`Listening at port ${port}`)

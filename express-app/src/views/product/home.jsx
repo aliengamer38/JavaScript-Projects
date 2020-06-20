@@ -5,6 +5,7 @@ const home = props => {
     return (
         <div>
             <p>Home Page</p>
+            <p>{props.prod}</p>
         </div>
     )
 }

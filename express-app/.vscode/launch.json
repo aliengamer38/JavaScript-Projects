@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\test\\app\\data.js",
+            "program": "${workspaceFolder}\\test\\application\\update.js",            
             "restart": true,
             "console": "integratedTerminal",
             "runtimeExecutable": "nodemon"
