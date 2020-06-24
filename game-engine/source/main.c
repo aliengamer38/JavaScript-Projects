@@ -35,7 +35,8 @@ void print_wait()
    printf("Read String3 |%s|\n", str3 );
    printf("Read Integer |%d|\n", year );
 
-   fclose(fp);      
+   fclose(fp);
+   fp = NULL;
 }
 
 void changeString(char *str)
