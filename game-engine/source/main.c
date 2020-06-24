@@ -37,6 +37,7 @@ void print_wait()
 
    fclose(fp);
    fp = NULL;
+   printf("Exiting...");
 }
 
 void changeString(char *str)
