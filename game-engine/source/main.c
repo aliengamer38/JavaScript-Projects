@@ -8,14 +8,19 @@
 
 int main()
 {
-    FILE *filePtr = fopen(FILE_PATH, "w+");
-    fputs("This is a text", filePtr);
-    rewind(filePtr);    
-    char text[20], text2[20], text3[20], text4[20];
-    fscanf(filePtr, "%s %s %s %s", text, text2, text3, text4);
-    printf("%s %s %s %s\n", text, text2, text3, text4);
-    fclose(filePtr);
+    FILE *filePtr = fopen("assets/readme.txt", "a+");
+    printf("%d\n", ftell(filePtr));
+    fseek(filePtr, 0, SEEK_END);
+    printf("%d\n", ftell(filePtr));
     filePtr = NULL;
+}
+
+void printBytes(char *str)
+{
+    for (char i = 0; i < 20; i++)
+    {
+        printf("%d\n", *(str + i));
+    }
 }
 
 void print_wait()
