@@ -1,130 +1,60 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include "main.h"
 #include <string.h>
 #include <ctype.h>
+#include "main.h"
+#include "paths.h"
 
-#define RATE  0.1  
-#define TAX_PAY  300
-#define SIZE 10
-
-
-int findMax(int numLength, int *nums)
+int main()
 {
-    int max = nums[0];
-    for (int i = 1; i < numLength; i++)
-    {
-        if (nums[i] > max)
-        {
-            max = nums[i];
-        }
-    }
-    return max;
+    FILE *filePtr = fopen(FILE_PATH, "w+");
+    fputs("This is a text", filePtr);
+    rewind(filePtr);    
+    char text[20], text2[20], text3[20], text4[20];
+    fscanf(filePtr, "%s %s %s %s", text, text2, text3, text4);
+    printf("%s %s %s %s\n", text, text2, text3, text4);
+    fclose(filePtr);
+    filePtr = NULL;
 }
 
-void printArrChars(int length, char *word)
+void print_wait()
 {
-    for (int i = 0; i < length; i++)
-    {        
-        printf("word[%d] = %d or %c\n", i, word[i], word[i]);
-        if (word[i] == '\0')
-            return;
-    }
+    char str1[10], str2[10], str3[10];
+   int year;
+   FILE * fp;
+
+   fp = fopen ("file.txt", "w+");
+   fputs("We are in 2012", fp);
+   
+   rewind(fp);
+   fscanf(fp, "%s %s %s %d", str1, str2, str3, &year);
+   
+   printf("Read String1 |%s|\n", str1 );
+   printf("Read String2 |%s|\n", str2 );
+   printf("Read String3 |%s|\n", str3 );
+   printf("Read Integer |%d|\n", year );
+
+   fclose(fp);
+   
+   return(0);
 }
 
-char* convert_to_upper(char *word)
-{    
-    for (int i = 0; i < 1000; i++)
-    {
-        word[i] = toupper(word[i]);        
-        if (!word[i])
-            break;
-    }
-    return word;
-}
-char findLength(char *word)
+void changeString(char *str)
 {
-    char count = 0;
-    for (char i = 0; i < 255; i++)
-    {
-        if (word[i])
-            break;
-        count++;        
-    }
-    return count;
-}
-int main(int argc, char *argv[]) 
-{
-    char num[] = "98.517";
-    double numVal = atoi(num);
-    printf("%.2f", numVal);
-}
-
-void null_string()
-{
-    char word[] = "words";
-    char text[] = "word";
-    
-    if (strncmp(word, text, 5) == 0)
-        printf("The two phrase are equal");
     
 }
-
-void printMessage()
+void getInformation(struct document *infoPtr)
 {
-    printf("This is a message");
+    infoPtr->first_name = malloc(30);
+    infoPtr->last_name = malloc(30);
+    printf("Input first name: ");
+    scanf("%s", infoPtr->first_name);
+    printf("Input last name: ");
+    scanf("%s", infoPtr->last_name);
 }
-
-void grades()
+void print_info(struct document *infoPtr)
 {
-    int gradeLen;
-    printf("How many grades are there? ");
-    scanf("%d", &gradeLen);
-    printf("Length of grades: %d\n", gradeLen);
-    int grades[gradeLen];
-    int sum = 0;
-    for (int i = 0; i < gradeLen; i++)
-    {
-        int grade;
-        printf("Input a grade: ");
-        scanf("%d", &grade);
-        sum += grade;
-        grades[i] = grade;
-    }
-    for (int i = 0; i < gradeLen; i++) {
-        printf("grades[%d] = %d\n", i, grades[i]);        
-    }
-    printf("Average of grades = %.3lf", (double)sum / gradeLen);
-}
-
-void guessingGame()
-{
-    int answer = 102;
-    int guess;
-    int maxGuessCount;
-    printf("Type in max number of guess: ");
-    scanf("%d", &maxGuessCount);
-    printf("You have %d number of guesses\n", maxGuessCount);
-    printf("Guess a number! ");
-    scanf("%d", &guess);
-    while (guess != answer)
-    {
-        if (guess > answer)
-            printf("Your guess is higher\n");
-        else        
-            printf("Your guess is lower\n");
-        maxGuessCount--;
-        printf("You have %d guesses left\n", maxGuessCount);
-        if (maxGuessCount > 0) {
-            printf("Guess another number: ");
-            scanf("%d", &guess);
-        } else {
-            break;
-        }
-    }
-    if (maxGuessCount > 0)    
-        printf("Your guess is correct!\n");    
-    else
-        printf("You ran out of guesses\n");
+    printf("First name: %s\n", infoPtr->first_name);
+    printf("First name: %s\n", infoPtr->last_name);
 }
