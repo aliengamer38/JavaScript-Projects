@@ -1,31 +1,17 @@
 {
-    "version": "2.0.0",
     "tasks": [
         {
-            "label": "build game engine",
             "type": "shell",
-            "command": "gcc",
+            "label": "C/C++: gcc.exe build active file",
+            "command": "C:/MinGW/bin/g++.exe",
             "args": [
                 "-g",
+                "${workspaceFolder}\\source\\${fileBasenameNoExtension}.c",
                 "-o",
-                "bin/main.exe",
-                "source/main.c"
-            ],
-            "group": "build",
-            "problemMatcher": []
-        },
-        {
-            "type": "shell",
-            "label": "C/C++ build",
-            "command": "C:/MinGW/bin/gcc.exe",
-            "args": [
-                "-g",
-                "${file}",
-                "-o",
-                "bin\\${fileBasenameNoExtension}.exe"
+                "${workspaceFolder}\\bin\\${fileBasenameNoExtension}.exe"
             ],
             "options": {
-                "cwd": "${workspaceFolder}"
+                "cwd": "C:/MinGW/bin"
             },
             "problemMatcher": [
                 "$gcc"
@@ -35,5 +21,6 @@
                 "isDefault": true
             }
         }
-    ]
+    ],
+    "version": "2.0.0"
 }
