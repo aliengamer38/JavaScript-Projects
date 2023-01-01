@@ -9,7 +9,7 @@
   "author": "ME",
   "license": "ISC",
   "devDependencies": {
-    "webpack": "^4.42.1"
+    "webpack": "^5.75.0"
   },
   "dependencies": {}
 }
